@@ -1,6 +1,9 @@
 @echo off
 title Terminal - Made by ItsRhysBoi
-color a
+
+set /p default_color=<Terminal-data\settings\default_color.ter
+color %default_color%
+
 cls
 goto terminal
 
@@ -8,8 +11,6 @@ goto terminal
 cls
 Echo.
 Echo ======================================================================================================================
-Echo.
-Echo Please note custom colour won't stay if program is closed or restarted
 Echo.
 Echo Blue (1)
 Echo Green (2)
@@ -23,8 +24,8 @@ Echo.
 Echo Light blue (9)
 Echo Light Green (a)
 Echo Light Aqua (b)
-Echo light Red (c)
-Echo light Purple (d)
+Echo Light Red (c)
+Echo Light Purple (d)
 Echo Light Yellow (e)
 Echo.
 Echo Bright White (f)
@@ -32,7 +33,7 @@ Echo.
 Echo ======================================================================================================================
 Echo.
 set /p col="Enter a color letter: "
-::Calls the colour that the user selects from the list above
+Echo %col% > Terminal-data\settings\default_color.ter
 color %col%
 goto terminal-options
 
@@ -41,36 +42,47 @@ cls
 Echo.
 Echo ======================================================================================================================
 Echo.
-Echo To goto a certain function type the letter(s) or number located in the brackets "()"
-Echo Commands may be case sensitive so cehck is they are capital letters or not
+Echo To go to a certain function, type the letter(s) or number located in the brackets "()"
+Echo Commands may be case sensitive so check if they are capital letters or not
+Echo Ignore words inside of "[]"
 Echo.
 Echo ======================================================================================================================
 Echo.
 pause
 goto terminal
 
-::Main program where user selects their choices
+:: Main program where user selects their first choices
 :Terminal
 cls
 Echo.
 Echo ======================================================================================================================
-Echo.
+echo.
+echo Terminal-functions:
+echo -------------------
+echo.
 Echo    Windows Tools (1)
 Echo    Windows Tools [Admin] (2)
-echo    Terminal Options (3)
+Echo    Troll Scripts (3)
+Echo.
+echo    Terminal Options (t)
+Echo    Help (h)
+Echo    Restart (r)
+Echo    Exit (e)
+echo.
+Echo.
+echo External links:
+Echo ---------------
 echo.
 Echo    View Terminal Github (g)
 Echo    View Rhys' Vault (rv)
 Echo    View Rhys' Vault Test (rvt)
-Echo    Help (h)
-Echo    Restart (r)
-Echo    Exit (e)
 Echo.
 Echo ======================================================================================================================
 set /p ter="Enter the number/letter(s) that go with the function: "
 if "%ter%"=="1" goto Tools
 if "%ter%"=="2" goto ToolsAdmin
-if "%ter%"=="3" goto Terminal-options
+if "%ter%"=="t" goto Terminal-options
+if "%ter%"=="3" goto troll
 if "%ter%"=="rv" start "" "https://rhysvault.netlify.app/" && goto Terminal
 if "%ter%"=="rvt" start "" "https://rhysvault-test.netlify.app/" && goto Terminal
 if "%ter%"=="h" goto help
@@ -81,7 +93,7 @@ echo Invalid option
 pause
 goto Terminal
 
-::Restarts the program by opening a new window and closing the current one
+:: Restarts the program by opening a new window and closing the current one
 :Restart
 start "" "terminal.bat"
 exit
@@ -136,7 +148,7 @@ diskpart
 pause
 goto ToolsAdmin:
 
-::Handles the function for the windows tools
+:: Handles the function for the windows tools
 :Tools
 cls
 Echo.
@@ -148,8 +160,10 @@ Echo    Get battery status report (Laptop only) (3)
 Echo    Display Ip information (4)
 Echo    Display All Ip Information (5)
 Echo    List Tasks + Kill them (6)
-Echo    Kill Taks (7)
-Echo    Check the usr you are on (8)
+Echo    Kill Tasks (7)
+Echo    Check the user you are on (8)
+Echo    System Information (9)
+Echo    Check Disk Space (10)
 Echo.
 Echo    Exit (e)
 echo.
@@ -161,10 +175,35 @@ if "%tol%"=="3" goto batterystatus
 if "%tol%"=="4" goto ip
 if "%tol%"=="5" goto ipa
 if "%tol%"=="6" goto Task
-if "%tol%"=="7" goto taskill
+if "%tol%"=="7" goto taskkill
 if "%tol%"=="8" goto username
+if "%tol%"=="9" goto SystemInfo
+if "%tol%"=="10" goto CheckDiskSpace
+
 if "%tol%"=="e" goto Terminal
 echo Invalid option
+pause
+goto Tools
+
+:CheckDiskSpace
+cls
+echo.
+echo Disk Space Information:
+echo -----------------------
+echo.
+wmic logicaldisk get caption,freespace,size,volumename
+echo.
+pause
+goto Tools
+
+:SystemInfo
+cls
+echo.
+echo System Information:
+echo -------------------
+echo.
+systeminfo
+echo.
 pause
 goto Tools
 
@@ -198,7 +237,7 @@ ipconfig /all
 pause
 goto tool
 
-::Handles Checking for Windows Product Key and prompting user with downloading a VBScript version
+:: Handles Checking for Windows Product Key and prompting user with downloading a VBScript version
 :winkey
 cls
 wmic path softwarelicensingservice get OA3xOriginalProductKey
@@ -212,7 +251,7 @@ pause
 goto winkey
 
 :winkeysuccess
-::Check if the directory is there or not
+:: Check if the directory is there or not
 IF NOT EXIST "Terminal-Data\Scripts\WindowsProductKeyFinder\finder.vbs" (
     echo Error: Location not found, Try reinstalling the program, Aborting
     pause
@@ -222,11 +261,51 @@ start Terminal-Data\Scripts\WindowsProductKeyFinder\finder.vbs
 pause
 goto Tools
 
-::Handles the FUnction of giving a battery report of the current users laptop if they are on one
+:: Handles the Function of giving a battery report of the current users laptop if they are on one
 :batterystatus
-::Promt user to enter drive letter and then call the drive letter while saing
+:: Prompt user to enter drive letter and then call the drive letter while saying
 set /p drive="Enter Drive letter: "
-::Calls drive letter
+:: Calls drive letter
 powercfg /batteryreport /output %drive%:\BatteryReport.html
 pause
 goto tools
+
+:: Enter the user into the troll section of the terminal
+:troll
+cls
+Echo.
+Echo ======================================================================================================================
+Echo.
+Echo    Matrix (1)
+Echo    Dir (2)
+Echo    VBS Msgbox (3)
+Echo    Windows Fork B (4)
+Echo.
+Echo    Exit (e)
+echo.
+Echo ======================================================================================================================
+set /p tol="Enter the number/letter(s) that go with the function: "
+if "%tol%"=="1" goto matrix
+if "%tol%"=="2" goto dir
+if "%tol%"=="3" goto wl
+if "%tol%"=="4" goto fork
+if "%tol%"=="e" goto terminal
+echo Invalid option
+pause
+goto troll
+
+:wl
+start Terminal-Data\Scripts\Wontleave\main.vbs
+exit
+
+:dir
+start Terminal-Data\Scripts\Dir\Dir.bat
+exit
+
+:matrix
+start Terminal-Data\Scripts\Matrix\Matrix.bat
+exit
+
+:fork
+start Terminal-Data\Scripts\Fork\Fork.bat
+exit
