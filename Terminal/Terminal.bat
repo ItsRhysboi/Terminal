@@ -74,6 +74,7 @@ echo External links:
 Echo ---------------
 echo.
 Echo    View Terminal Github (g)
+Echo    View Terminal On Rhys Vault (trv)
 Echo    View Rhys' Vault (rv)
 Echo    View Rhys' Vault Test (rvt)
 Echo.
@@ -83,6 +84,7 @@ if "%ter%"=="1" goto Tools
 if "%ter%"=="2" goto ToolsAdmin
 if "%ter%"=="t" goto Terminal-options
 if "%ter%"=="3" goto troll
+if "%ter%"=="trv" goto "" "https://rhysvault-test.netlify.app/the_vault/project_vault/terminal"
 if "%ter%"=="rv" start "" "https://rhysvault.netlify.app/" && goto Terminal
 if "%ter%"=="rvt" start "" "https://rhysvault-test.netlify.app/" && goto Terminal
 if "%ter%"=="h" goto help
