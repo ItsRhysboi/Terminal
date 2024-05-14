@@ -1,2 +1,4 @@
+Please use the terminal.bat file and dont use the individual files as they will not work as intendeds
+
 Terminal created by ItsRhysBoi
-Offical download site: rhysvault.netlify.app
+Offical download site: https://rhysvault.netlify.app/the_vault/project_vault/terminal

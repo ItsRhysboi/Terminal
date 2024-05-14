@@ -1,11 +1,308 @@
 @echo off
-title Terminal - Made by ItsRhysBoi
+title Terminal - Made by ItsRhysBoi - v1.1
 
 set /p default_color=<Terminal-data\settings\default_color.ter
 color %default_color%
 
 cls
 goto terminal
+
+:: Main program where user selects their first choices
+:Terminal
+cls
+Echo.
+Echo ======================================================================================================================
+echo.
+Echo Terminal-functions:
+echo -------------------
+echo.
+Echo    Windows Tools (1)
+Echo    Windows Tools [Admin] (2)
+Echo    Troll Scripts (3)
+Echo.
+echo    Terminal Options (t)
+Echo    Help (h)
+Echo    Restart (r)
+Echo    Exit (e)
+echo.
+Echo.
+echo External links:
+Echo ---------------
+echo.
+Echo    View Terminal On Github (g)
+Echo    View Terminal On Rhys Vault (trv)
+Echo    View Rhys' Vault (rv)
+Echo    View Rhys' Vault Test (rvt)
+Echo.
+Echo ======================================================================================================================
+set /p ter="Enter the number(s)/letter(s) that go with the function: "
+::Functions that will redirect to the files inside of "Terminal-data"
+if "%ter%"=="1" call "Terminal-data\Windows_tools.bat"
+if "%ter%"=="2" call "Terminal-data\Windows_Tools_Admin.bat"
+if "%ter%"=="3" call "Terminal-data\Troll.bat"
+
+if "%ter%"=="t" goto Terminal-options
+if "%ter%"=="h" goto help
+if "%ter%"=="r" goto Restart
+if "%ter%"=="e" exit
+
+if "%ter%"=="trv" start "" "https://rhysvault-test.netlify.app/the_vault/project_vault/terminal" && goto terminal
+if "%ter%"=="rv" start "" "https://rhysvault.netlify.app/" && goto Terminal
+if "%ter%"=="rvt" start "" "https://rhysvault-test.netlify.app/" && goto Terminal
+if "%ter%"=="g" start "" "https://github.com/ItsRhysboi/Terminal" && goto Terminal
+echo Invalid option
+pause
+goto Terminal
+
+:: Restarts the program by opening a new window and closing the current one
+:Restart
+start "" "terminal.bat"
+exit
+
+:Help
+cls
+Echo.
+Echo ======================================================================================================================
+Echo.
+Echo To go to a certain function, type the letter(s) or number(s) located in the brackets "()"
+Echo Commands may be case sensitive so check if they are capital letters or not
+Echo Don't type the words inside of the "[]"
+Echo.
+Echo ======================================================================================================================
+Echo.
+pause
+goto terminal
+
+:Terminal-options
+cls
+Echo.
+Echo ======================================================================================================================
+Echo.
+Echo    Reinstall Terminal (1)
+Echo    Change Color (2)
+Echo    Verify Files and Folders in Terminal-data directory (3)
+Echo.
+Echo    Exit (e)
+Echo.
+Echo ======================================================================================================================
+Echo.
+
+set /p teo="Enter the number/letter(s) that go with the function: "
+if "%teo%"=="1" goto Reinstall
+if "%teo%"=="2" goto color 
+if "%teo%"=="3" goto VerifyFiles
+if "%teo%"=="e" goto terminal
+Echo Invalid Option
+pause
+goto Terminal-options
+
+:VerifyFiles
+cls
+Echo.
+Echo ======================================================================================================================
+Echo.
+Echo Checking files/folders in root directory...
+Echo -------------------------------------------
+Echo.
+::Check if Terminal-data exsists
+if exist "Terminal-data" (
+    Echo Folder: Terminal-Data [Verified]
+) else (
+    Echo Terminal-data [Failed Verification] 
+)
+
+::Checks terminal.bat
+if exist "terminal.bat" (
+    Echo File: Terminal.bat [Verified]
+) else (
+    Echo File: Terminal.bat [Failed Verification]
+)
+
+Echo.
+Echo.
+Echo Checking files/folders in Termina-data...
+Echo -----------------------------------------
+Echo.
+::change into the termial-data directory
+cd terminal-data
+
+::Check the scripts folder
+if exist "Scripts" (
+    Echo Folder: Scripts [Verified]
+) else (
+    Echo Folder: Scripts [Failed Verification]
+)
+
+::Checks the settings folder
+if exist "Settings" (
+    Echo Folder: Settings [Verified]
+) else (
+    Echo Folder: Settings [Failed Verification]
+)
+
+::Checks the troll.bat file
+if exist "Troll.bat" (
+    Echo File: Troll.bat [Verified]
+) else (
+    Echo File: Troll.bat [Failed Verification]
+)
+
+::Checks the Windows_tools.bat file
+if exist "Windows_tools.bat" (
+    Echo File: Windows_tools.bat [Verified]
+) else (
+    Echo File: Windows_tools.bat [Failed Verification]
+)
+
+:: Checks the Windows_tools_Admin.bat file
+if exist "Windows_tools_admin.bat" (
+    Echo File: Windows_tools_admin.bat [Verified]
+) else (
+    Echo File: Windows_tools_admin.bat [Failed Verification]
+)
+cd Scripts
+Echo.
+Echo Checking files/folders in Scripts...
+Echo ------------------------------------
+Echo.
+
+if exist "cmd" (
+    Echo Folder: cmd [Verified]
+) else (
+    Echo Folder: cmd [Failed Verification]
+)
+
+if exist "delete" (
+    Echo Folder: delete [Verified]
+) else (
+    Echo Folder: delete [Failed Verification]
+)
+
+if exist "Dir" (
+    Echo Folder: Dir [Verified]
+) else (
+    Echo Folder: Dir [Failed Verification]
+)
+
+if exist "Fork" (
+    Echo Folder: Fork [Verified]
+) else (
+    Echo Folder: Fork [Failed Verification]
+)
+
+if exist "Matrix" (
+    Echo Folder: Matrix [Verified]
+) else (
+    Echo Folder: Matrix [Failed Verification]
+)
+
+if exist "WindowsProductKeyFinder" (
+    Echo Folder: WindowsProductKeyFinder [Verified]
+) else (
+    Echo Folder: WindowsProductKeyFinder [Failed Verification]
+)
+
+if exist "Wontleave" (
+    Echo Folder: WontLeave [Verified]
+) else (
+    Echo Folder: WontLeave [Failed Verification]
+)
+
+Echo.
+Echo.
+Echo Checking files/folders in Scrpts sub directorys...
+Echo --------------------------------------------------
+Echo.
+
+cd cmd
+if exist "cmd.bat" (
+    Echo File: cmd/cmd.bat [Verified]
+) else (
+    Echo File cmd/cmd.bat [Failed Verification]
+)
+cd ../
+
+cd delete
+if exist "delete.bat" (
+    Echo File: delete/delete.bat [Verifiedss]
+) else (
+    Echo Fil: delete/delete.bat [Failed Verification]
+)
+cd ../
+
+cd dir
+if exist "Dir.bat" (
+    Echo File: Dir/Dir.bat [Verified]
+) else (
+    Echo File: Dir/Dir.bat [Failed Verification]
+)
+cd ../
+
+cd Fork
+if exist "Fork.bat" (
+    Echo File: Fork/Fork.bat [Verified]
+) else (
+    Echo File: Fork/Fork.bat [Failed Verification]
+)
+cd ../
+
+cd Matrix
+if exist "Matrix.bat" (
+    Echo File: Matrix/Matrix.bat [Verified]
+) else (
+    Echo File: Matrix/Matrix.bat [Failed Verification]
+)
+cd ../
+
+cd WindowsProductKeyFinder
+if exist "keys" (
+    Echo Folder: Keys [Verified]
+) else (
+    Echo Folder: Keys [Failed Verification]
+)
+
+if exist "Finder.vbs" (
+    Echo File: WindowsProductKeyFinder/Finder.vbs [Verified]
+) else (
+    Echo File: WindowsProductKeyFinder/Finder.vbs [Failed Verification]
+)
+cd ../
+
+cd WontLeave
+if exist "main.vbs" (
+    Echo File: WontLeave/Main.vbs [Verified]
+) else (
+    Echo File: WontLeave/Main.vbs [Failed Verification]
+)
+cd ../
+cd ../
+
+cd settings
+Echo.
+Echo.
+Echo Checking files/folders in Settings...
+Echo -------------------------------------
+Echo.
+
+if exist "default_color.ter" (
+    Echo File: default_color.ter [Verifiedif]
+) else (
+    Echo File: default_color.ter [Failed Verification]
+)
+cd ../
+cd ../
+Echo.
+Echo Verification finished
+Echo If files/folder show [Failed Verification] reinstall the progra or download the individual files from
+Echo.
+Echo ======================================================================================================================
+Echo.
+pause
+goto Terminal-options
+
+:Reinstall
+start "https://rhysvault.netlify.app/the_vault/project_vault/terminal"
+goto Terminal-options
 
 :color
 cls
@@ -36,278 +333,3 @@ set /p col="Enter a color letter: "
 Echo %col% > Terminal-data\settings\default_color.ter
 color %col%
 goto terminal-options
-
-:Help
-cls
-Echo.
-Echo ======================================================================================================================
-Echo.
-Echo To go to a certain function, type the letter(s) or number located in the brackets "()"
-Echo Commands may be case sensitive so check if they are capital letters or not
-Echo Ignore words inside of "[]"
-Echo.
-Echo ======================================================================================================================
-Echo.
-pause
-goto terminal
-
-:: Main program where user selects their first choices
-:Terminal
-cls
-Echo.
-Echo ======================================================================================================================
-echo.
-echo Terminal-functions:
-echo -------------------
-echo.
-Echo    Windows Tools (1)
-Echo    Windows Tools [Admin] (2)
-Echo    Troll Scripts (3)
-Echo.
-echo    Terminal Options (t)
-Echo    Help (h)
-Echo    Restart (r)
-Echo    Exit (e)
-echo.
-Echo.
-echo External links:
-Echo ---------------
-echo.
-Echo    View Terminal Github (g)
-Echo    View Terminal On Rhys Vault (trv)
-Echo    View Rhys' Vault (rv)
-Echo    View Rhys' Vault Test (rvt)
-Echo.
-Echo ======================================================================================================================
-set /p ter="Enter the number/letter(s) that go with the function: "
-if "%ter%"=="1" goto Tools
-if "%ter%"=="2" goto ToolsAdmin
-if "%ter%"=="t" goto Terminal-options
-if "%ter%"=="3" goto troll
-if "%ter%"=="trv" goto "" "https://rhysvault-test.netlify.app/the_vault/project_vault/terminal"
-if "%ter%"=="rv" start "" "https://rhysvault.netlify.app/" && goto Terminal
-if "%ter%"=="rvt" start "" "https://rhysvault-test.netlify.app/" && goto Terminal
-if "%ter%"=="h" goto help
-if "%ter%"=="r" goto Restart
-if "%ter%"=="e" exit
-if "%ter%"=="g" start "" "https://github.com/ItsRhysboi/Terminal" && goto Terminal
-echo Invalid option
-pause
-goto Terminal
-
-:: Restarts the program by opening a new window and closing the current one
-:Restart
-start "" "terminal.bat"
-exit
-
-:Terminal-options
-cls
-Echo.
-Echo ======================================================================================================================
-Echo.
-Echo    Reinstall Terminal (1)
-Echo    Change Color (2)
-Echo.
-Echo    Exit (e)
-Echo.
-Echo ======================================================================================================================
-Echo.
-
-set /p teo="Enter the number/letter(s) that go with the function: "
-if "%teo%"=="1" goto Reinstall
-if "%teo%"=="2" goto color 
-if "%teo%"=="e" goto terminal
-Echo Invalid Option
-pause
-goto Terminal-Options
-
-:Reinstall
-pause
-goto Terminal-options
-
-:ToolsAdmin
-cls
-Echo.
-Echo ======================================================================================================================
-Echo.
-Echo    DiskPart (1)
-Echo.
-Echo    Exit (e)
-Echo.
-Echo ======================================================================================================================
-Echo.
-
-set /p ta=
-if "%ta%"=="1" goto diskpart
-if "%ta%"=="2" goto Terminal
-
-echo Invalid option
-pause
-goto ToolsAdmin
-
-:diskpart
-diskpart
-pause
-goto ToolsAdmin:
-
-:: Handles the function for the windows tools
-:Tools
-cls
-Echo.
-Echo ======================================================================================================================
-Echo.
-Echo    Find Windows Key (1)
-Echo    Find Windows Key with VBScript (2)
-Echo    Get battery status report (Laptop only) (3)
-Echo    Display Ip information (4)
-Echo    Display All Ip Information (5)
-Echo    List Tasks + Kill them (6)
-Echo    Kill Tasks (7)
-Echo    Check the user you are on (8)
-Echo    System Information (9)
-Echo    Check Disk Space (10)
-Echo.
-Echo    Exit (e)
-echo.
-Echo ======================================================================================================================
-set /p tol="Enter the number/letter(s) that go with the function: "
-if "%tol%"=="1" goto winkey
-if "%tol%"=="2" goto winkeysuccess
-if "%tol%"=="3" goto batterystatus
-if "%tol%"=="4" goto ip
-if "%tol%"=="5" goto ipa
-if "%tol%"=="6" goto Task
-if "%tol%"=="7" goto taskkill
-if "%tol%"=="8" goto username
-if "%tol%"=="9" goto SystemInfo
-if "%tol%"=="10" goto CheckDiskSpace
-
-if "%tol%"=="e" goto Terminal
-echo Invalid option
-pause
-goto Tools
-
-:CheckDiskSpace
-cls
-echo.
-echo Disk Space Information:
-echo -----------------------
-echo.
-wmic logicaldisk get caption,freespace,size,volumename
-echo.
-pause
-goto Tools
-
-:SystemInfo
-cls
-echo.
-echo System Information:
-echo -------------------
-echo.
-systeminfo
-echo.
-pause
-goto Tools
-
-:username
-cls
-whoami /all
-pause
-goto tools
-
-:task
-cls
-tasklist
-goto taskkill
-:taskkill
-Echo.
-set /p task="Enter the task name: "
-taskkill /f /im %task% /t
-tasklist %task%
-pause
-goto tools
-
-:ip
-cls
-ipconfig
-pause
-goto tools
-
-:ipa
-cls
-ipconfig /all
-pause
-goto tool
-
-:: Handles Checking for Windows Product Key and prompting user with downloading a VBScript version
-:winkey
-cls
-wmic path softwarelicensingservice get OA3xOriginalProductKey
-Echo If product key does not show, try running the VBScript.
-Echo Run VBScript? (y/n)
-set /p wky=
-if /I "%wky%"=="y" goto winkeysuccess
-if /I "%wky%"=="n" goto Tools
-echo Invalid option
-pause
-goto winkey
-
-:winkeysuccess
-:: Check if the directory is there or not
-IF NOT EXIST "Terminal-Data\Scripts\WindowsProductKeyFinder\finder.vbs" (
-    echo Error: Location not found, Try reinstalling the program, Aborting
-    pause
-    goto Terminal
-)
-start Terminal-Data\Scripts\WindowsProductKeyFinder\finder.vbs
-pause
-goto Tools
-
-:: Handles the Function of giving a battery report of the current users laptop if they are on one
-:batterystatus
-:: Prompt user to enter drive letter and then call the drive letter while saying
-set /p drive="Enter Drive letter: "
-:: Calls drive letter
-powercfg /batteryreport /output %drive%:\BatteryReport.html
-pause
-goto tools
-
-:: Enter the user into the troll section of the terminal
-:troll
-cls
-Echo.
-Echo ======================================================================================================================
-Echo.
-Echo    Matrix (1)
-Echo    Dir (2)
-Echo    VBS Msgbox (3)
-Echo    Windows Fork B (4)
-Echo.
-Echo    Exit (e)
-echo.
-Echo ======================================================================================================================
-set /p tol="Enter the number/letter(s) that go with the function: "
-if "%tol%"=="1" goto matrix
-if "%tol%"=="2" goto dir
-if "%tol%"=="3" goto wl
-if "%tol%"=="4" goto fork
-if "%tol%"=="e" goto terminal
-echo Invalid option
-pause
-goto troll
-
-:wl
-start Terminal-Data\Scripts\Wontleave\main.vbs
-exit
-
-:dir
-start Terminal-Data\Scripts\Dir\Dir.bat
-exit
-
-:matrix
-start Terminal-Data\Scripts\Matrix\Matrix.bat
-exit
-
-:fork
-start Terminal-Data\Scripts\Fork\Fork.bat
-exit
