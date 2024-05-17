@@ -1,6 +1,7 @@
 @echo off
+title Terminal - Made by ItsRhysBoi - v1.2
 
-set /p default_color=<settings\default_color.ter
+set /p default_color=<Terminal-Data\Settings\User\default_color.ter
 color %default_color%
 
 :: Handles the function for the windows tools
@@ -12,13 +13,10 @@ Echo.
 Echo    Find Windows Key (1)
 Echo    Find Windows Key with VBScript (2)
 Echo    Get battery status report [Laptop only] (3)
-Echo    Display Ip information (4)
-Echo    Display All Ip Information (5)
-Echo    List Tasks + Kill them (6)
-Echo    Kill Tasks (7)
-Echo    Check the user you are on (8)
-Echo    System Information (9)
-Echo    Check Disk Space (10)
+Echo    Display Ip Information (4)
+Echo    List Tasks + Kill them (5)
+Echo    System Information (6)
+Echo    Check Disk Space (7)
 Echo.
 Echo    Exit (e)
 echo.
@@ -27,13 +25,10 @@ set /p tol="Enter the number/letter(s) that go with the function: "
 if "%tol%"=="1" goto winkey
 if "%tol%"=="2" goto winkeysuccess
 if "%tol%"=="3" goto batterystatus
-if "%tol%"=="4" goto ip
-if "%tol%"=="5" goto ipa
-if "%tol%"=="6" goto Task
-if "%tol%"=="7" goto taskkill
-if "%tol%"=="8" goto username
-if "%tol%"=="9" goto SystemInfo
-if "%tol%"=="10" goto CheckDiskSpace
+if "%tol%"=="4" goto ipa
+if "%tol%"=="5" goto taskkill
+if "%tol%"=="6" goto SystemInfo
+if "%tol%"=="7" goto CheckDiskSpace
 
 if "%tol%"=="e" call "Terminal.bat"
 echo Invalid option
@@ -62,12 +57,6 @@ echo.
 pause
 goto Tools
 
-:username
-cls
-whoami /all
-pause
-goto tools
-
 :task
 cls
 tasklist
@@ -77,12 +66,6 @@ Echo.
 set /p task="Enter the task name: "
 taskkill /f /im %task% /t
 tasklist %task%
-pause
-goto tools
-
-:ip
-cls
-ipconfig
 pause
 goto tools
 
@@ -123,3 +106,8 @@ set /p drive="Enter Drive letter: "
 powercfg /batteryreport /output %drive%:\BatteryReport.html
 pause
 goto tools
+
+setlocal EnableDelayedExpansion
+
+REM Define initial directory
+set "currentDir=%CD%"
