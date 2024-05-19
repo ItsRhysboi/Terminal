@@ -1,6 +1,9 @@
 @echo off
 cls
 
+set /p default_color%=<Terminal-Data\Settings\User\default_color.ter
+color %default_color%
+
 :Terminal-options
 cls
 Echo.
@@ -56,7 +59,7 @@ Echo then the number or letter of the colour for background
 Echo ======================================================================================================================
 Echo.
 set /p col="Enter a color letter: "
-Echo %col% > Terminal-data\settings\default_color.ter
+Echo %col% > Terminal-data\settings\user\default_color.ter
 color %col%
 goto terminal-options
 
