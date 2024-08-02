@@ -18,7 +18,7 @@ Echo.
 Echo ======================================================================================================================
 Echo.
 
-set /p opt="Enter the number/letter(s) that go with the function: "
+set /p opt="Enter the number/letter that go with the function above: "
 if "%opt%"=="1" goto Shutdown
 if "%opt%"=="2" goto restart
 if "%opt%"=="3" goto bios

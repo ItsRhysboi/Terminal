@@ -7,14 +7,11 @@ Echo.
 Echo ======================================================================================================================
 echo.
 Echo Terminal is an open source program made with batch Script
-Echo Officail download link is "https://rhysvault.netlify.app/the_vault/project_vault/terminal"
+Echo Officail download link is "https://rhysvault.com/the_vault/Project_Vault/Batch/Terminal/Terminal_current.zip"
 Echo Any other link is Invalid
-Echo This version of Terminal is "V1.2"
-Echo Newer Versions can be fount at "https://rhysvault.netlify.app/the_vault/project_vault/terminal"
+Echo This version of Terminal is "V1.3"
 Echo Please dont use the individual files inside of the Terminal-data directory as the paths are not correct
 Echo and will not work
-Echo This meassage can be found at Terminal-data\settings\system\greet.ter
-Echo Change the file extension to .bat or .cmd to view
 Echo.
 Echo ======================================================================================================================
 echo.

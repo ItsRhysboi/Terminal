@@ -10,22 +10,23 @@ cls
 Echo.
 Echo ======================================================================================================================
 Echo.
-Echo    Remove Duplicate Disk Drive (1)
+Echo Terminal must be ran in admin to use these features
+Echo.
+Echo    Diskpart (1)
 Echo.
 Echo    Exit (e)
 Echo.
 Echo ======================================================================================================================
 Echo.
 
-set /p ta="Enter the number/letter(s) that go with the function: "
+set /p ta="Enter the number/letter that go with the function above: "
 if "%ta%"=="1" goto diskpart
-if "%ta%"=="2" goto netplwiz
-if "%ta%"=="3" goto adduser
-if "%ta%"=="e" call "Terminal.bat"
+if "%ta%"=="e" call terminal
 
 echo Invalid option
 pause
 goto ToolsAdmin
 
-:rddd
-start Terminal-Data\Scripts\RevoveDuplicateDiskDrive\RevoveDuplicateDiskDrive.reg
+:diskpart
+cls
+diskpart

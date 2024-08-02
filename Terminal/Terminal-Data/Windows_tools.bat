@@ -21,7 +21,7 @@ Echo.
 Echo    Exit (e)
 echo.
 Echo ======================================================================================================================
-set /p tol="Enter the number/letter(s) that go with the function: "
+set /p tol="Enter the number/letter that go with the function above: "
 if "%tol%"=="1" goto winkey
 if "%tol%"=="2" goto winkeysuccess
 if "%tol%"=="3" goto batterystatus

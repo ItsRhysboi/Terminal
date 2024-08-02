@@ -18,7 +18,7 @@ Echo.
 Echo ======================================================================================================================
 Echo.
 
-set /p teo="Enter the number/letter(s) that go with the function: "
+set /p teo="Enter the number/letter that go with the function above: "
 if "%teo%"=="1" goto Reinstall
 if "%teo%"=="2" goto color 
 if "%teo%"=="3" goto alm
@@ -28,7 +28,7 @@ pause
 goto Terminal-options
 
 :Reinstall
-start "" "https://rhysvault.netlify.app/the_vault/project_vault/Batch/Terminal/Terminal_v1.1.zip"
+start "" "https://rhysvault.netlify.app/the_vault/project_vault/Batch/Terminal/Terminal_current.zip"
 goto Terminal-options
 
 :color
@@ -58,7 +58,7 @@ Echo To set a background color type the number or letter of the colour you want 
 Echo then the number or letter of the colour for background
 Echo ======================================================================================================================
 Echo.
-set /p col="Enter a color letter: "
+set /p col="Enter a color letter/number: "
 Echo %col% > Terminal-data\settings\user\default_color.ter
 color %col%
 goto terminal-options
@@ -71,7 +71,8 @@ rename greet.ter greet.bat
 cd ../
 cd ../
 cd ../
+Echo.
 Echo Done
-Echo Exiting
 pause
+start terminal.bat
 exit
