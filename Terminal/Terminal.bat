@@ -1,5 +1,5 @@
 @echo off
-title Terminal - Made by ItsRhysBoi - v1.2
+title Terminal - Made by ItsRhysBoi - v1.4
 
 if not EXIST Terminal-data (
     Echo Terminal-data folder missing.
@@ -57,17 +57,13 @@ if "%ter%"=="t" call "Terminal-data\Terminal_options.bat"
 if "%ter%"=="h" goto help
 if "%ter%"=="r" goto Restart
 if "%ter%"=="e" exit
-
-if "%ter%"=="trv" start "" "https://rhysvault-test.netlify.app/the_vault/project_vault/terminal" && goto terminal
-if "%ter%"=="rv" start "" "https://rhysvault.netlify.app/" && goto Terminal
-if "%ter%"=="rvt" start "" "https://rhysvault-test.netlify.app/" && goto Terminal
-if "%ter%"=="g" start "" "https://github.com/ItsRhysboi/Terminal" && goto Terminal
 echo Invalid option
 pause
 goto Terminal
 
 :: Restarts the program by opening a new window and closing the current one
 :Restart
+cd ../
 start "" "terminal.bat"
 Echo User restarted the program > Terminal-data\settings\logs\log.log
 exit

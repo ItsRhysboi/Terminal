@@ -1,5 +1,5 @@
 @echo off
-title Terminal - Made by ItsRhysBoi - v1.2
+title Terminal - Made by ItsRhysBoi - v1.4
 
 set /p default_color=<Terminal-Data\Settings\User\default_color.ter
 color %default_color%

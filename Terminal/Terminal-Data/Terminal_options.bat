@@ -1,4 +1,5 @@
 @echo off
+title Terminal - Made by ItsRhysBoi - v1.4
 cls
 
 set /p default_color%=<Terminal-Data\Settings\User\default_color.ter
@@ -28,7 +29,7 @@ pause
 goto Terminal-options
 
 :Reinstall
-start "" "https://rhysvault.netlify.app/the_vault/project_vault/Batch/Terminal/Terminal_current.zip"
+start "" "https://rhysvault.com/the_vault/Project_Vault/Batch/Terminal/Terminal_current.zip"
 goto Terminal-options
 
 :color
